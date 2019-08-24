@@ -8,6 +8,10 @@ class User < ApplicationRecord
                                     dependent: :destroy
     has_many :followers, through: :reverse_subscriptions
 
+    has_many :posts, dependent: :destroy
+    has_many :text_posts, dependent: :destroy
+    has_many :image_posts, dependent: :destroy
+
     def following?(leader)
         leaders.include? leader
     end
